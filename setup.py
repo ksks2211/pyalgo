@@ -16,6 +16,6 @@ setuptools.setup(
     url="https://github.com/kkll22/pyalgo",
     project_urls={"Bug Tracker": "https://github.com/kkll22/pyalgo/issues"},
     license="MIT",
-    packages=["sorting"],
+    packages=["pyalgo"],
     install_requires=[],
 )
