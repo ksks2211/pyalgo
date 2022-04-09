@@ -1,1 +1,1 @@
-from .sorting.basicsort import bubble_sort, selection_sort, insertion_sort
+from .sorting import bubble_sort, selection_sort, insertion_sort, is_sorted
