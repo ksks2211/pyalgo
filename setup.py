@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="pyalgo",
-    version="0.0.1",
+    version="0.0.2",
     author="pyy",
     author_email="rival15@naver.com",
     description="personal algorithm note",
