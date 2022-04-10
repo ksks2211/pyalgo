@@ -1,10 +1,9 @@
-def get_arr(arr, inplace):
-    return arr if inplace is True else arr[:]
+from .common import _get_arr
 
 
 # Bubble Sort
 def bubble_sort(arr, **kwargs):
-    arr = get_arr(arr, kwargs.get("inplace"))
+    arr = _get_arr(arr, kwargs.get("inplace"))
 
     #  len(arr)-1   >= (i) >= 1
     for i in range(len(arr) - 1, 0, -1):
@@ -21,7 +20,7 @@ def bubble_sort(arr, **kwargs):
 
 # Selection Sort
 def selection_sort(arr, **kwargs):
-    arr = get_arr(arr, kwargs.get("inplace"))
+    arr = _get_arr(arr, kwargs.get("inplace"))
 
     #  0 <= (i) <= len(arr)-2
     for i in range(len(arr) - 1):
@@ -37,7 +36,7 @@ def selection_sort(arr, **kwargs):
 
 # Insertion Sort
 def insertion_sort(arr, **kwargs):
-    arr = get_arr(arr, kwargs.get("inplace"))
+    arr = _get_arr(arr, kwargs.get("inplace"))
 
     for i in range(1, len(arr)):
         # 추가될 값
@@ -54,14 +53,11 @@ def insertion_sort(arr, **kwargs):
 
 if __name__ == "__main__":
 
-    list = [1, 5, 2, 6, 4]
-    sorted = bubble_sort(list)
+    from ..common import random_integers, is_sorted
 
-    print(list)
-    print(sorted)
+    arr = list(random_integers(20, 0, 200))
 
-    list = [1, 5, 2, 6, 4]
-    sorted = bubble_sort(list, inplace=True)
+    bubble_sort(arr, inplace=True)
 
-    print(list)
-    print(sorted)
+    assert is_sorted(arr)
+    print(arr)
