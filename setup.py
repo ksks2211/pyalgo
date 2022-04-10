@@ -16,12 +16,6 @@ setuptools.setup(
     url="https://github.com/kkll22/pyalgo",
     project_urls={"Bug Tracker": "https://github.com/kkll22/pyalgo/issues"},
     license="MIT",
-    packages=[
-        "pyalgo",
-        "pyalgo.sorting",
-        "pyalgo.ds",
-        "pyalgo.searching",
-        "pyalgo.ds.matrix",
-    ],
+    packages=["pyalgo", "pyalgo.sorting", "pyalgo.ds", "pyalgo.searching"],
     install_requires=[],
 )
