@@ -71,10 +71,48 @@ def count_sort(arr):
     return res
 
 
+def _merge(arr, left, right):
+
+    i, j = len(left), len(right)
+    x, y, z = 0, 0, 0
+
+    while x < i and y < j:
+        if left[x] < right[y]:
+            arr[z] = left[x]
+            x += 1
+        else:
+            arr[z] = right[y]
+            y += 1
+        z += 1
+    while x < i:
+        arr[z] = left[x]
+        x += 1
+        z += 1
+    while y < j:
+        arr[z] = right[y]
+        y += 1
+        z += 1
+
+
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+
+    mid = len(arr) // 2
+
+    left = arr[:mid]
+    right = arr[mid:]
+    merge_sort(left)
+    merge_sort(right)
+    _merge(arr, left, right)
+    return arr
+
+
 if __name__ == "__main__":
     from ..common import random_integers, is_sorted
 
     arr = list(random_integers(20, 0, 20))
-    arr = count_sort(arr)
+    print("Before Sorting : ", arr)
+    arr = merge_sort(arr)
     assert is_sorted(arr)
-    print(arr)
+    print("After Sorting : ", arr)

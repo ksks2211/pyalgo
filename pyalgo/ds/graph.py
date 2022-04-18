@@ -16,11 +16,14 @@ class AdjacencyMatrix:
     def disconnect(self, i, j):
         self.graph[i][j] = self.unconnected
 
-    def is_connected(self, i, j):
+    def connected(self, i, j):
         return self.graph[i][j] != self.unconnected
 
-    def get_distance(self, i, j):
+    def distance(self, i, j):
         return self.graph[i][j]
+
+    def graph(self):
+        return self.graph
 
 
 class AdjacencyList:
@@ -34,3 +37,31 @@ class AdjacencyList:
 
     def neighbors(self, i):
         return self.graph[i]
+
+    def graph(self):
+        return self.graph
+
+
+if __name__ == "__main__":
+
+    adjmat = AdjacencyMatrix(5)
+
+    adjmat.connect(1, 2)
+    adjmat.connect(2, 3)
+    adjmat.connect(3, 1)
+    adjmat.connect(1, 3)
+    adjmat.connect(3, 4)
+
+    assert adjmat.connected(1, 2) is True
+    adjmat.disconnect(1, 2)
+    assert adjmat.connected(1, 2) is False
+
+    adjlist = AdjacencyList()
+    adjlist.connect(1, 2)
+    adjlist.connect(1, 3)
+    adjlist.connect(2, 3)
+    adjlist.connect(3, 1)
+    adjlist.connect(3, 4)
+
+    assert 2 in adjlist.neighbors(1)
+    assert 3 in adjlist.neighbors(1)
