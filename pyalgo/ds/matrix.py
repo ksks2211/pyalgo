@@ -40,5 +40,5 @@ if __name__ == "__main__":
     print(m1)
     print(m2)
     print(col(m3, 0))
-
+    print(row(m3, 0))
     print(transcope(m3))
