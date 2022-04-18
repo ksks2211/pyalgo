@@ -9,10 +9,10 @@ def has_undirected_cycle(edges, vertices):
             return True
         else:
             s.union(v, w)
-    return True
+    return False
 
 
 if __name__ == "__main__":
-    edges = [(1, 2), (2, 3), (3, 4), (4, 1)]
+    edges = [(1, 2), (2, 3), (3, 4)]
     vertices = {1, 2, 3, 4}
     print(has_undirected_cycle(edges, vertices))
